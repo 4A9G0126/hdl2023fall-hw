@@ -1,0 +1,65 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x557ba12eae70 .scope module, "ex01_tb" "ex01_tb" 2 3;
+ .timescale 0 0;
+v0x557ba12fd2f0_0 .net "c", 0 0, L_0x557ba12fd650;  1 drivers
+v0x557ba12fd3b0_0 .var "x", 1 0;
+v0x557ba12fd480_0 .var "y", 1 0;
+v0x557ba12fd580_0 .net "z", 1 0, L_0x557ba12fd6f0;  1 drivers
+S_0x557ba12eaff0 .scope module, "u1" "adder2" 2 7, 3 1 0, S_0x557ba12eae70;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "a"
+    .port_info 1 /INPUT 2 "b"
+    .port_info 2 /OUTPUT 2 "sum"
+    .port_info 3 /OUTPUT 1 "carry"
+L_0x7f398e25e060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x557ba12ca2c0_0 .net *"_s10", 0 0, L_0x7f398e25e060;  1 drivers
+v0x557ba12fcb30_0 .net *"_s11", 2 0, L_0x557ba12fdae0;  1 drivers
+v0x557ba12fcc10_0 .net *"_s3", 2 0, L_0x557ba12fd830;  1 drivers
+L_0x7f398e25e018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x557ba12fcd00_0 .net *"_s6", 0 0, L_0x7f398e25e018;  1 drivers
+v0x557ba12fcde0_0 .net *"_s7", 2 0, L_0x557ba12fd970;  1 drivers
+v0x557ba12fcf10_0 .net "a", 1 0, v0x557ba12fd3b0_0;  1 drivers
+v0x557ba12fcff0_0 .net "b", 1 0, v0x557ba12fd480_0;  1 drivers
+v0x557ba12fd0d0_0 .net "carry", 0 0, L_0x557ba12fd650;  alias, 1 drivers
+v0x557ba12fd190_0 .net "sum", 1 0, L_0x557ba12fd6f0;  alias, 1 drivers
+L_0x557ba12fd650 .part L_0x557ba12fdae0, 2, 1;
+L_0x557ba12fd6f0 .part L_0x557ba12fdae0, 0, 2;
+L_0x557ba12fd830 .concat [ 2 1 0 0], v0x557ba12fd3b0_0, L_0x7f398e25e018;
+L_0x557ba12fd970 .concat [ 2 1 0 0], v0x557ba12fd480_0, L_0x7f398e25e060;
+L_0x557ba12fdae0 .arith/sum 3, L_0x557ba12fd830, L_0x557ba12fd970;
+    .scope S_0x557ba12eae70;
+T_0 ;
+    %vpi_call 2 10 "$monitor", "%t %b %b %b %b", $time, v0x557ba12fd3b0_0, v0x557ba12fd480_0, v0x557ba12fd580_0, v0x557ba12fd2f0_0 {0 0 0};
+    %pushi/vec4 50, 0, 32;
+T_0.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.1, 5;
+    %jmp/1 T_0.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %vpi_func 2 12 "$random" 32 {0 0 0};
+    %pad/u 4;
+    %split/vec4 2;
+    %store/vec4 v0x557ba12fd480_0, 0, 2;
+    %store/vec4 v0x557ba12fd3b0_0, 0, 2;
+    %delay 100, 0;
+    %jmp T_0.0;
+T_0.1 ;
+    %pop/vec4 1;
+    %delay 100, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ex01_tb.v";
+    "./ex01.v";
