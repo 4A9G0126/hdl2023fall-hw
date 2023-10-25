@@ -1,0 +1,68 @@
+$date
+	Wed Oct 25 06:02:40 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module decode_tb $end
+$var wire 1 ! co $end
+$var wire 8 " result [7:0] $end
+$var wire 8 # _result [7:0] $end
+$var wire 1 $ _co $end
+$var reg 8 % a [7:0] $end
+$var reg 8 & b [7:0] $end
+$var reg 3 ' opcode [2:0] $end
+$scope module u1 $end
+$var wire 8 ( a [7:0] $end
+$var wire 8 ) b [7:0] $end
+$var wire 1 ! co $end
+$var wire 3 * opcode [2:0] $end
+$var wire 8 + result [7:0] $end
+$upscope $end
+$scope module u2 $end
+$var wire 8 , a [7:0] $end
+$var wire 8 - b [7:0] $end
+$var wire 3 . opcode [2:0] $end
+$var wire 8 / result [7:0] $end
+$var wire 1 $ co $end
+$var reg 9 0 _result [8:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 0
+bx /
+bx .
+bx -
+bx ,
+bz +
+bx *
+bx )
+bx (
+bx '
+bx &
+bx %
+x$
+bx #
+bz "
+z!
+$end
+#100000
+b10100110 #
+b10100110 /
+0$
+b10100110 0
+b10100110 %
+b10100110 (
+b10100110 ,
+b10100100 &
+b10100100 )
+b10100100 -
+b100 '
+b100 *
+b100 .
+#200000
