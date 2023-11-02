@@ -1,0 +1,73 @@
+$date
+	Thu Nov  2 02:48:35 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_NextPC $end
+$var wire 16 ! next [15:0] $end
+$var wire 16 " _next [15:0] $end
+$var reg 16 # addr [15:0] $end
+$var reg 1 $ br $end
+$var reg 1 % clk $end
+$var reg 16 & cur [15:0] $end
+$var reg 1 ' im $end
+$var reg 8 ( imm [7:0] $end
+$scope module U1 $end
+$var wire 16 ) addr [15:0] $end
+$var wire 1 $ br $end
+$var wire 1 % clk $end
+$var wire 16 * cur [15:0] $end
+$var wire 1 ' im $end
+$var wire 8 + imm [7:0] $end
+$var wire 16 , next [15:0] $end
+$upscope $end
+$scope module U2 $end
+$var wire 16 - addr [15:0] $end
+$var wire 1 $ br $end
+$var wire 1 % clk $end
+$var wire 16 . cur [15:0] $end
+$var wire 1 ' im $end
+$var wire 8 / imm [7:0] $end
+$var reg 16 0 next [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 0
+b0 /
+b0 .
+b0 -
+bz ,
+b0 +
+b0 *
+b0 )
+b0 (
+0'
+b0 &
+0%
+0$
+b0 #
+bx "
+bz !
+$end
+#50000
+b10 "
+b10 0
+1%
+#100000
+0%
+b1100011 (
+b1100011 +
+b1100011 /
+b1101011000001001 #
+b1101011000001001 )
+b1101011000001001 -
+b101111010000001 &
+b101111010000001 *
+b101111010000001 .
+#110000
